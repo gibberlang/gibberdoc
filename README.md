@@ -2,9 +2,18 @@
 Documentation about gibber
 # Gibber: An AI-Optimized Programming Language
 
+
 ## 🚀 Introduction
 
-Gibber is a new programming language designed **specifically for AI-assisted coding**. Unlike traditional languages optimized for human developers, Gibber is built to enhance **Large Language Model (LLM) code generation**—making it more **accurate, efficient, and bug-free**.
+Gibber is a new programming language designed **specifically for AI-assisted coding**. Unlike traditional languages optimized for human developers, Gibber is built to enhance **Large Language Model (LLM) code generation**—making it more **accurate, efficient, and bug-free**. It addresses the unique capabilities and limitations of Large Language Models when generating, understanding, and modifying code.
+
+## Core Philosophy
+
+Gibber is built on three foundational principles:
+
+1. **Explicit Intent** - The language prioritizes clear expression of programmer intent over implementation details.
+2. **Contextual Clarity** - Code structure helps LLMs maintain context and track relationships between components.
+3. **Predictable Patterns** - Consistent, regular syntax patterns make it easier for both AI and humans to predict and understand code behavior.
 
 ### Why Gibber?
 
@@ -24,11 +33,17 @@ Gibber solves this by providing:
 
 ---
 
-## 🛠 Core Features
+## Key Innovations
 
-### ✅ **Strict Yet Understandable Syntax**
+Gibber introduces several novel language features:
 
-Gibber enforces **clear, unambiguous syntax** to prevent AI misinterpretations while remaining readable to humans.
+- **Purpose Declarations** - Code blocks include explicit declarations of their purpose and invariants.
+- **Pattern Templates** - Common algorithmic patterns are first-class language constructs.
+- **Context Tracking** - Explicit scope boundaries and relationship markers help maintain context.
+- **Effect Isolation** - Side effects are tracked and controlled through the type system.
+- **Verification Hooks** - Built-in hooks for runtime verification of expected behaviors.
+
+## Example: A Simple Function
 
 ```gibber
 @purpose("Calculate the factorial of a non-negative integer")
@@ -52,44 +67,7 @@ func factorial(n: Int) -> Int {
     return result
 }
 ```
-
-### ✅ **Built-in Test Execution**
-
-Every function **must** have an associated test. The compiler (`gibbc`) runs tests **before** compiling:
-
-```gibber
-@pure
-def add(x: int, y: int) -> int:
-    return x + y
-
-@test
-def test_add() -> void:
-    assert add(2, 3) == 5
-    assert add(-1, 1) == 0
-```
-
-🚨 **No tests? No compile!**
-
-### ✅ **Strong Typing + Type Inference**
-
-```gibber
-let x = 42          # Inferred as int
-let name = "Gibber" # Inferred as string
-let nums = [1, 2, 3] # Inferred as List<int>
-```
-
-### ✅ **Generics & Collections**
-
-```gibber
-class Stack<T>:
-    let items: List<T> = []
-
-    def push(item: T) -> void:
-        items.append(item)
-
-    def pop() -> T:
-        return items.remove_last()
-```
+🚀 **Let's build a language that AI can code in flawlessly!** 🚀
 
 ---
 
@@ -106,10 +84,4 @@ We’re **just getting started**, and we need **your input** to shape Gibber int
 📌 Open an issue or PR to share your thoughts! 📌 Help us design Gibber's type system, memory model, and best practices.
 
 ---
-
-## 🔮 Future Roadmap
-
--
-
-🚀 **Let's build a language that AI can code in flawlessly!** 🚀
 
