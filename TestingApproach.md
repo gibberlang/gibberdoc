@@ -1,31 +1,96 @@
-# 🚀 **Gibber: AI-Optimized Programming Language**  
+```markdown
+# 🧪 Testing Approach in Gibber
 
-## 🔹 **Core Design Decisions**  
-
-### ✅ **Compiled & Multi-Platform**  
-- Gibber will use **LLVM** as the backend (like Rust) for **performance and portability**.  
-- **Built-in cross-compilation** ensures seamless execution on different platforms.  
-
-### ✅ **Functional vs. Structured?**  
-To make AI-generated code **predictable & bug-free**, Gibber will:  
-- ✅ Be **functional-first** (purity, immutability, predictable execution).  
-- ✅ Allow **structured constructs** (explicit loops, objects) **with clear side-effect markers**.  
-- ✅ **No hidden state changes**—mutations must be **explicitly annotated** (like Rust’s `mut`).  
+## 🎯 Overview
+Gibber integrates testing directly into the development process by allowing **LLMs to write, run, and validate tests** in real-time while generating code. This ensures that:
+- **Code and unit tests** are either in the same file or separate files as needed.
+- **Tests are enforced before compilation**—compilation fails if tests do not pass.
+- LLMs can **automatically generate, run, and validate** test cases during development.
 
 ---
 
-## 🏗 **Step 1: Core Language Features**  
+## 🏗 How Testing Works in Gibber
 
-### **1️⃣ Data Types** (Strongly Typed & Predictable)  
-Gibber enforces **static typing** with **no implicit conversions**.  
+1. **LLM generates code and tests together**.
+2. **Tests are executed in real-time** as the code is being written.
+3. **Code cannot compile unless all tests pass**.
+4. **Testing can be inline (same file) or separate** depending on project structure.
 
+---
+
+## 🔍 Example: Code and Tests in the Same File
 ```gibber
-int  x = 42       # Immutable integer
-float y = 3.14    # Float
-bool  z = true    # Boolean
-string name = "Gibber"  # Strings are UTF-8 by default
+@explain("Computes the square of a number.")
+@pure
+def square(x: int) -> int:
+    return x * x
 
-option<int> maybeValue = None  # No nulls, explicit optional types
+@test
+@explain("Tests the square function.")
+def test_square():
+    assert square(2) == 4
+    assert square(3) == 9
+    assert square(-2) == 4
+```
+### ✅ Key Features:
+- **`@test`** annotation tells Gibber that the function is a test case.
+- **Tests run immediately**—if they fail, the code won’t compile.
+- **LLM auto-generates the test cases** alongside the function.
 
+---
+
+## 🔍 Example: Code and Tests in Separate Files
+### **`mathlib.gibber`** (Main Code File)
+```gibber
+@explain("Implements basic math functions.")
+@module("mathlib")
+class MathLib:
+    @explain("Finds the maximum of two numbers.")
+    def max(a: int, b: int) -> int:
+        return a if a > b else b
+```
+
+### **`mathlib_test.gibber`** (Test File)
+```gibber
+@import("mathlib")
+
+@test
+@explain("Tests max function.")
+def test_max():
+    assert MathLib.max(3, 5) == 5
+    assert MathLib.max(10, 2) == 10
+    assert MathLib.max(-1, -5) == -1
+```
+### ✅ Key Features:
+- **Tests are in a separate file** but automatically linked to `mathlib.gibber`.
+- **Gibber enforces that all modules have test coverage**.
+
+---
+
+## 🚀 Enforcing Tests Before Compilation
+Gibber **prevents compilation if any test fails**. The command-line workflow looks like this:
+
+```sh
+$ gibber build
+❌ Compilation failed: Test test_square failed (expected 9, got 8)
+```
+
+Once all tests pass, compilation succeeds:
+```sh
+$ gibber build
+✅ Compilation successful.
+```
+
+---
+
+## 📌 Summary
+- **LLMs generate and run tests while writing code**.
+- **Tests can be inline (same file) or separate**.
+- **Tests are required before compilation succeeds**.
+- **Automated AI-driven TDD (Test-Driven Development)** ensures **higher code reliability**.
+
+---
+
+Gibber's built-in test enforcement **eliminates AI-generated bugs** before code reaches production. What features should we add next? 🚀
 ```
 
