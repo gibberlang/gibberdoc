@@ -76,7 +76,10 @@ We’re **just getting started**, and we need **your input** to shape Gibber int
 
 ### 🔥 Ways to Contribute
 
-✅ **Ideas & Feedback**: Suggest features, syntax changes, or improvements. ✅ **Compiler Development**: Help build the Gibber compiler (`gibbc`). ✅ **Standard Library**: Design data structures, utilities, and core modules. ✅ **Test Cases**: Define rigorous test cases for AI-generated code.
+✅ **Ideas & Feedback**: Suggest features, syntax changes, or improvements. 
+✅ **Compiler Development**: Help build the Gibber compiler (`gibbc`). 
+✅ **Standard Library**: Design data structures, utilities, and core modules. 
+✅ **Test Cases**: Define rigorous test cases for AI-generated code.
 
 ### 💬 Join the Discussion
 
