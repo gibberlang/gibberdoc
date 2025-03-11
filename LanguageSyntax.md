@@ -4,6 +4,16 @@
 
 Gibber is designed to transpile to TypeScript while introducing syntax features that make it more suitable for AI-assisted development. This specification outlines the core syntax elements of Gibber.
 
+## Key aspects of the syntax specification include:
+
+- Rich Metadata - Extensive use of annotations like @purpose, @requires, and @ensures to make intent explicit
+- Type System - Strong typing with constrained types like Range<0..100>
+- Pattern Templates - First-class support for common design patterns
+- Effect System - Tracking and controlling side effects
+- Verification Blocks - Built-in testing and verification
+- Explicit Scoping - Named blocks and clear scope boundaries
+- TypeScript Interoperability - Direct interop with TypeScript for practical adoption
+
 ## File Structure
 
 Gibber files use the `.gib` extension. Each file typically contains:
