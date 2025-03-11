@@ -1,4 +1,4 @@
-```markdown
+
 # 🧪 Testing Approach in Gibber
 
 ## 🎯 Overview
