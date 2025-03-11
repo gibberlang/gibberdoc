@@ -30,6 +30,29 @@ Gibber solves this by providing:
 
 Gibber enforces **clear, unambiguous syntax** to prevent AI misinterpretations while remaining readable to humans.
 
+```gibber
+@purpose("Calculate the factorial of a non-negative integer")
+@requires(n >= 0, "Input must be non-negative")
+@ensures(result > 0, "Result is always positive")
+@complexity(time: O(n), space: O(1))
+@pure
+func factorial(n: Int) -> Int {
+    var result: Int = 1
+    
+    @invariant(result > 0, "Result remains positive throughout calculation")
+    for i in range(1, n+1) {
+        result *= i
+    }
+    
+    @verify { 
+        assert factorial(0) == 1
+        assert factorial(5) == 120
+    }
+    
+    return result
+}
+```
+
 ### ✅ **Built-in Test Execution**
 
 Every function **must** have an associated test. The compiler (`gibbc`) runs tests **before** compiling:
