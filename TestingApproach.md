@@ -27,12 +27,5 @@ string name = "Gibber"  # Strings are UTF-8 by default
 
 option<int> maybeValue = None  # No nulls, explicit optional types
 
-
-# Key Features:
-
-- @test annotation tells Gibber that the function is a test case.
-
-- Tests run immediately—if they fail, the code won’t compile.
-
-- LLM auto-generates the test cases alongside the function.
+```
 
