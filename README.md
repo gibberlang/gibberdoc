@@ -1,5 +1,4 @@
-# gibberdoc
-Documentation about gibber
+
 # Gibber: An AI-Optimized Programming Language
 
 
