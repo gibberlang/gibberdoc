@@ -86,7 +86,9 @@ We’re **just getting started**, and we need **your input** to shape Gibber int
 
 ### 💬 Join the Discussion
 
-📌 Open an issue or PR to share your thoughts! 📌 Help us design Gibber's type system, memory model, and best practices.
+📌 Open an issue or PR to share your thoughts!
+
+📌 Help us design Gibber's type system, memory model, and best practices.
 
 ---
 
